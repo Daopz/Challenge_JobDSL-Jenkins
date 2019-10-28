@@ -1,0 +1,29 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.35">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.74">
+    <script>node {
+      def seedJob
+      stage ('Checkout') {
+        checkout([
+          $class: 'GitSCM',
+          branches: [[name: 'master']],
+          doGenerateSubmoduleConfigurations: false,
+          extensions: [],
+          submoduleCfg: [],
+          userRemoteConfigs: [[credentialsId: '', url: 'https://git:git@github.com/Daud23/test-job']]
+        ])
+      }
+      stage ('Generate') {
+        jobDsl targets: 'generate_job.groovy'
+      }
+      
+    }</script>
+    <sandbox>true</sandbox>
+  </definition>
+  
+  <disabled>false</disabled>
+</flow-definition>

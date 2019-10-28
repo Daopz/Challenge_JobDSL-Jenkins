@@ -1,0 +1,16 @@
+version: '2'
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: './Dockerfile'
+    ports:
+    - '80:8080'
+    - '449:8443'
+    - '50000:50000'
+    volumes:
+    - 'jenkins_data:/jenkins_config'
+    - "./jobs/seed-job/config.xml:/var/jenkins_home/jobs/seed-job/config.xml"
+volumes:
+  jenkins_data:
+    driver: local
