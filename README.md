@@ -20,9 +20,9 @@ To use the `docker-compose.yml` file, you will need to have done the following:
 
   A Jenkins container gets fired up with packages specified in plugins.txt file. A predefined job gets mounted as a volume (Seed-job).
 
-  Go to Jenkins Url is: localhost:80
+  Go to Jenkins Url there is: localhost:80
 
-  And running the Seed-job, the Seed-job fetches job DSL from the public repository and generates another job. The generated job start automatically each 2 minutes because there is a trigger defined by default for this. 
+  And running the Seed-job, the Seed-job fetches job DSL from the public repository and generates another job. The generated job start automatically each 2 minutes because there is a trigger defined by default for this on `generate_job.groovy` file.
 
   ## Author Information
 
